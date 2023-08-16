@@ -50,8 +50,10 @@ const usersSlice = createSlice({
 		setSortByNameAC(state, action: PayloadAction<{ searchParams: string }>) {
 			state.sortUsers = state.users.filter(
 				(el) =>
-					el.name.first === action.payload.searchParams ||
-					el.name.last === action.payload.searchParams
+					el.name.first.toLowerCase() ===
+						action.payload.searchParams.toLowerCase() ||
+					el.name.last.toLowerCase() ===
+						action.payload.searchParams.toLowerCase()
 			);
 		},
 	},

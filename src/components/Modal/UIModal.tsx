@@ -26,10 +26,13 @@ export const UIModal: FC<UIModalPropsType> = ({
 	const { control, handleSubmit, setValue } = useForm<FormValues>({
 		resolver: zodResolver(editContactSchema),
 	});
+
 	const dispatch = useAppDispatch();
+
 	const users = useAppSelector((state) => state.usersSlice.users);
 
 	const findUser = users.find((el) => el.login.uuid === userID);
+
 	//warning with render
 	useEffect(() => {
 		if (findUser) {
